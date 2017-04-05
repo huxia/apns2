@@ -18,10 +18,12 @@
     "notification",
     "simple"
   ],
-  "require": {},
+  "require": {
+    "ramsey/uuid": "^3.6"
+  },
   "autoload": {
     "psr-4": {
-      "Apns2\\": "src/"
+      "Huxia\\Apns2\\": "src/"
     }
   },
   "config": {

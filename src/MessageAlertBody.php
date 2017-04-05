@@ -1,5 +1,5 @@
 <?php
-namespace Apns2;
+namespace Huxia\Apns2;
 
 class MessageAlertBody extends BaseDataObject
 {

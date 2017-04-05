@@ -1,12 +1,14 @@
 <?php
-use Apns2\Connection;
-use Apns2\Message;
-use Apns2\MessageAPSBody;
-use Apns2\Options;
+use Huxia\Apns2\Connection;
+use Huxia\Apns2\Message;
+use Huxia\Apns2\MessageAPSBody;
+use Huxia\Apns2\Options;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$connection = new Connection(['sandbox' => false, 'cert-path' => '/data/www/v4/worker/cert/http2.pem']);
+$connection = new Connection();
+$connection->sandbox = false;
+$connection->certPath = '/data/www/v4/worker/cert/http2.pem';
 
 $aps = new MessageAPSBody();
 $aps->alert = 'test 1';
