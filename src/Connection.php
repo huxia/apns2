@@ -21,6 +21,13 @@ class Connection extends BaseDataObject
         $this->loadFromJSON($data);
     }
 
+    /**
+     * @param string $token
+     * @param Message $message
+     * @param Options $options
+     * @return Response
+     * @throws \Exception
+     */
     protected function sendOne($token, $message, $options)
     {
 
@@ -39,6 +46,10 @@ class Connection extends BaseDataObject
         $beginTime = microtime(true);
 
         $host = $this->sandbox ? 'https://api.development.push.apple.com' : 'https://api.push.apple.com';
+
+        if (!$this->certPath) {
+            throw new \Exception("certPath is required");
+        }
 
         $cert = realpath($this->certPath);
         if (!$cert) {
