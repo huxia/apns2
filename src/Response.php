@@ -8,23 +8,30 @@ namespace Apns2;
  */
 class Response
 {
-    public $device_id;
+    public $deviceId;
     public $code;
-    public $reason;
+    public $bodyReason;
+    public $body;
     public $duration;
+    public $headers;
 
-    public function __construct($responseHeaderAndBody, $code, $duration)
+
+    public function __construct($responseHeaderAndBody, $code, $duration, $deviceId)
     {
         $this->duration = $duration;
         $this->code = $code;
-        $m = preg_match('/^\s+ (\d+).*?\\n(.*)$/s', $responseHeaderAndBody);
+        $this->deviceId = $deviceId;
+
+        $m = preg_match('/^\s+ (\d+)(.*?)\\n\\r*\\n(.*)$/s', $responseHeaderAndBody);
         if ($m) {
             $this->code = $m[1];
         }
-        $body = $m[2];
+        $headers = $m[2];
+        $this->headers = $headers;
+        $body = $m[3];
         if ($body) {
-            $json = json_decode($body);
-            $this->reason = isset($json->reason) ? $json->reason : '';
+            $this->body = json_decode($body);
+            $this->bodyReason = isset($this->body) ? $this->body->reason : '';
         }
     }
 }

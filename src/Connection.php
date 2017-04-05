@@ -72,11 +72,7 @@ class Connection extends BaseDataObject
         if ($result === false) {
             throw new \Exception('Curl failed with error: ' . curl_error($this->ch));
         }
-        $response = new Response();
-        $response->status = $result;
-        $response->code = curl_getinfo($this->ch, CURLINFO_HTTP_CODE);
-        $response->duration = microtime(true) - $beginTime;
-        $response->device_id = $token;
+        $response = new Response($result, curl_getinfo($this->ch, CURLINFO_HTTP_CODE),  microtime(true) - $beginTime, $token);
         return $response;
     }
 
