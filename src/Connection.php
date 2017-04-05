@@ -24,6 +24,9 @@ class Connection extends BaseDataObject
     protected function sendOne($token, $message, $options)
     {
 
+        if (!$message->aps || is_scalar($message->aps)) {
+            throw new \Exception("invalid message: " . json_encode($message));
+        }
 
         if (!defined('CURL_HTTP_VERSION_2_0')) {
             define('CURL_HTTP_VERSION_2_0', 3);
