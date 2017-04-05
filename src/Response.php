@@ -1,5 +1,5 @@
 <?php
-namespace Huxia\Apns2;
+namespace Dashi\Apns2;
 
 /**
  * Response for sending message to specific device via APNs

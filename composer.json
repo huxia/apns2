@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Huxia\\Apns2\\": "src/"
+      "Dashi\\Apns2\\": "src/"
     }
   },
   "config": {

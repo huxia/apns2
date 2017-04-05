@@ -1,18 +1,18 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$connection = new Huxia\Apns2\Connection();
+$connection = new Dashi\Apns2\Connection();
 $connection->sandbox = false;
 $connection->certPath = '/data/www/v4/worker/cert/http2.pem';
 
-$aps = new Huxia\Apns2\MessageAPSBody();
+$aps = new Dashi\Apns2\MessageAPSBody();
 $aps->alert = 'test 1';
 $aps->sound = 'default';
 
-$message = new Huxia\Apns2\Message();
+$message = new Dashi\Apns2\Message();
 $message->aps = $aps;
 
-$options = new Huxia\Apns2\Options();
+$options = new Dashi\Apns2\Options();
 $options->apnsTopic = 'com.ohsame.same2.0';
 
 $responses = $connection->send([

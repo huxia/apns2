@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$connection = new \Huxia\Apns2\Connection(['sandbox' => false, 'cert-path' => '/data/www/v4/worker/cert/http2.pem']);
+$connection = new \Dashi\Apns2\Connection(['sandbox' => false, 'cert-path' => '/data/www/v4/worker/cert/http2.pem']);
 
 $responses = $connection->send([
     '81fbf7e296f6c94755832a48476182e4e9586a380116e18a46531b62349504f0',

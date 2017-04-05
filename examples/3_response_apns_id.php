@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$connection = new \Huxia\Apns2\Connection(['sandbox' => false, 'cert-path' => '/data/www/v4/worker/cert/http2.pem']);
+$connection = new \Dashi\Apns2\Connection(['sandbox' => false, 'cert-path' => '/data/www/v4/worker/cert/http2.pem']);
 
 $uuid = \Ramsey\Uuid\Uuid::uuid4()->toString();
 echo "send notification with uuid: $uuid\n";
@@ -20,6 +20,6 @@ $connection->close();
 echo "check response: {$responses[0]->apnsId} == ${uuid}\n";
 assert($responses[0]->apnsId == $uuid);
 
-$reason = \Huxia\Apns2\Response::REASON_BAD_DEVICE_TOKEN;
+$reason = \Dashi\Apns2\Response::REASON_BAD_DEVICE_TOKEN;
 echo "check response: {$responses[0]->reason} == ${reason}\n";
 assert($responses[0]->reason == $reason);

@@ -17,18 +17,18 @@ Simple & expressive HTTP2 API for Apple Push Notification service (APNs) with co
 #### using classes
 
 ```php
-$connection = new Huxia\Apns2\Connection();
+$connection = new Dashi\Apns2\Connection();
 $connection->sandbox = false;
 $connection->certPath = '/path/to/http2/cert.pem';
 
-$aps = new Huxia\Apns2\MessageAPSBody();
+$aps = new Dashi\Apns2\MessageAPSBody();
 $aps->alert = 'test 1';
 $aps->sound = 'default';
 
-$message = new Huxia\Apns2\Message();
+$message = new Dashi\Apns2\Message();
 $message->aps = $aps;
 
-$options = new Huxia\Apns2\Options();
+$options = new Dashi\Apns2\Options();
 $options->apnsTopic = 'your.bundle.id';
 
 $responses = $connection->send([
@@ -42,7 +42,7 @@ var_dump($responses);
 #### using arrays
 
 ```php
-$connection = new \Huxia\Apns2\Connection(['sandbox' => true, 'cert-path' => '/path/to/http2/cert.pem']);
+$connection = new \Dashi\Apns2\Connection(['sandbox' => true, 'cert-path' => '/path/to/http2/cert.pem']);
 
 $responses = $connection->send([
     '81fbf7e296f6c94755832a48476182e4e9586a380116e18a46531b62349504f1' // invalid
@@ -61,7 +61,7 @@ $connection->close();
 echo "check response: {$responses[0]->apnsId} == ${uuid}\n";
 assert($responses[0]->apnsId == $uuid);
 
-$reason = \Huxia\Apns2\Response::REASON_BAD_DEVICE_TOKEN;
+$reason = \Dashi\Apns2\Response::REASON_BAD_DEVICE_TOKEN;
 echo "check response: {$responses[0]->reason} == ${reason}\n";
 assert($responses[0]->reason == $reason);
 ```
