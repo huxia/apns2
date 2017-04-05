@@ -16,7 +16,7 @@ class Utils{
 
     public static function camelcaseToHyphenJoined($str, $joinChar = '-')
     {
-        return ltrim(strtolower(preg_replace('/[A-Z]/', '_$0', $str)), $joinChar);
+        return ltrim(strtolower(preg_replace('/[A-Z]/', $joinChar.'$0', $str)), $joinChar);
     }
 
 }
