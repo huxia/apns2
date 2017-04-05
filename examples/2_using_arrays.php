@@ -16,4 +16,3 @@ $responses = $connection->send([
     'apns-topic' => 'com.ohsame.same2.0',
 ]);
 $connection->close();
-var_dump($responses);

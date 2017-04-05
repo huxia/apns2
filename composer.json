@@ -3,7 +3,7 @@
   "type": "library",
   "license": "MIT",
   "homepage": "https://github.com/huxia/apns2",
-  "description": "Simple HTTP2 API for Apple Push Notification service (APNs)",
+  "description": "Simple & expressive HTTP2 API for Apple Push Notification service (APNs) with comprehensive docs/constants.",
   "authors": [
     {
       "name": "Huizhe",
@@ -19,6 +19,7 @@
     "simple"
   ],
   "require": {
+    "php": ">=5.3.0",
     "ramsey/uuid": "^3.6"
   },
   "autoload": {

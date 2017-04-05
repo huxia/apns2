@@ -66,23 +66,59 @@ class Response
     const REASON_SHUTDOWN = 'Shutdown';
 
 
+    /**
+     * request device id for this response
+     * @var string
+     */
     public $deviceId;
+    /**
+     * The apns-id value from the request. If no value was included in the request, the server creates a new UUID and returns it in this header.
+     * @var string|null
+     */
     public $apnsId;
-    public $code;
-    public $reason;
+
+    /**
+     * response status code
+     * @var int
+     */
+    public $status;
+
+    /**
+     * response json body
+     * @var \stdClass|null
+     */
     public $body;
-    public $duration;
+    /**
+     * response headers
+     * @var array
+     */
     public $headers;
+
+    /**
+     * reason for error response, see REASON_* constants of this class
+     * @var string
+     */
+    public $reason;
+    /**
+     * time used from request been sent
+     * @var float
+     */
+    public $duration;
+    /**
+     * If :status is 410, the value of this key is the last time at which APNs confirmed that the device token was no longer valid for the topic.
+     * @var null
+     */
+    public $timestamp;
 
 
     public function __construct($responseHeaderAndBody, $code, $duration, $deviceId)
     {
         $this->duration = $duration;
-        $this->code = $code;
+        $this->status = $code;
         $this->deviceId = $deviceId;
 
         if (preg_match('/^\S+ (\d+)[^\n]*\n(.*?)\r*\n\r*\n(.*)$/s', $responseHeaderAndBody, $m)) {
-            $this->code = intval($m[1]);
+            $this->status = intval($m[1]);
 
             $this->headers = [];
             foreach (explode("\n", trim($m[2])) as $line) {
@@ -105,7 +141,8 @@ class Response
             $body = trim($m[3]);
             if ($body) {
                 $this->body = json_decode($body);
-                $this->reason = isset($this->body) ? $this->body->reason : '';
+                $this->reason = isset($this->body) ? $this->body->reason : null;
+                $this->timestamp = isset($this->timestamp) ? $this->body->timestamp : null;
             }
         }
     }

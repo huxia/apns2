@@ -1,11 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$connection = new \Huxia\Apns2\Connection();
-$connection->sandbox = false;
-$connection->certPath = '/data/www/v4/worker/cert/http2.pem';
-
-$random_id = rand(10000, 2000);
+$connection = new \Huxia\Apns2\Connection(['sandbox' => false, 'cert-path' => '/data/www/v4/worker/cert/http2.pem']);
 
 $uuid = \Ramsey\Uuid\Uuid::uuid4()->toString();
 echo "send notification with uuid: $uuid\n";
