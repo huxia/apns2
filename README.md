@@ -7,7 +7,9 @@ Simple & expressive HTTP2 API for Apple Push Notification service (APNs) with co
 1. [Make Sure CURL Supports HTTP/2](http://stackoverflow.com/a/34831873/286348)
 2. [Creating a Universal Push Notification Client SSL Certificate (.p12)](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW11)
 3. Converting .p12 to .pem
-`openssl pkcs12 -in cert.p12 -out cert.pem -nodes -clcerts`
+> `openssl pkcs12 -in cert.p12 -out cert.pem -nodes -clcerts`
+4. Go
+> `composer require dashi/apns2`
 
 
 ### Usage
@@ -63,3 +65,6 @@ $reason = \Huxia\Apns2\Response::REASON_BAD_DEVICE_TOKEN;
 echo "check response: {$responses[0]->reason} == ${reason}\n";
 assert($responses[0]->reason == $reason);
 ```
+### License
+
+MIT
