@@ -20,7 +20,8 @@ $options->apnsTopic = 'com.ohsame.same2.0';
 
 $responses = $connection->send([
     '81fbf7e296f6c94755832a48476182e4e9586a380116e18a46531b62349504f0',
-    'e2d0b464813b6b2371d745dff2b1e5fb6b83b07f7dcd98cc9f1346a7752dcc45'
+    'e2d0b464813b6b2371d745dff2b1e5fb6b83b07f7dcd98cc9f1346a7752dcc45',
+    '81fbf7e296f6c94755832a48476182e4e9586a380116e18a46531b62349504f1' // invalid
 ], $message, $options);
 $connection->close();
 var_dump($responses);
