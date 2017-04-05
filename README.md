@@ -27,7 +27,7 @@ $message = new Huxia\Apns2\Message();
 $message->aps = $aps;
 
 $options = new Huxia\Apns2\Options();
-$options->apnsTopic = 'com.ohsame.same2.0';
+$options->apnsTopic = 'your.bundle.id';
 
 $responses = $connection->send([
     '81fbf7e296f6c94755832a48476182e4e9586a380116e18a46531b62349504f0',
@@ -50,7 +50,7 @@ $responses = $connection->send([
         'sound' => 'default',
     ]
 ], [
-    'apns-topic' => 'com.ohsame.same2.0',
+    'apns-topic' => 'your.bundle.id',
 ]);
 $connection->close();
 ```
