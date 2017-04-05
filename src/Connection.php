@@ -7,7 +7,7 @@ namespace Apns2;
  */
 class Connection extends BaseDataObject
 {
-    public $sandbox;
+    public $sandbox = true;
     public $certPath;
     private $ch;
 
