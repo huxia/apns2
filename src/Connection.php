@@ -30,7 +30,6 @@ class Connection extends BaseDataObject
      */
     protected function sendOne($token, $message, $options)
     {
-
         if (!$message->aps || is_scalar($message->aps)) {
             throw new \Exception("invalid message: " . json_encode($message));
         }
@@ -55,8 +54,8 @@ class Connection extends BaseDataObject
         if (!$cert) {
             throw new \Exception("cert path invalid: {$this->certPath}");
         }
-        curl_setopt_array($this->ch, array(
-            CURLOPT_URL => "{$host}/3/device/{$token}",
+        curl_setopt_array($this->ch, [
+            CURLOPT_URL => "$host/3/device/$token",
             CURLOPT_PORT => 443,
             CURLOPT_HTTPHEADER => $options->getHeadersForHttp2API(),
             CURLOPT_POST => true,
@@ -66,13 +65,14 @@ class Connection extends BaseDataObject
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_SSLCERT => $cert,
             CURLOPT_HEADER => 1
-        ));
+        ]);
 
         $result = curl_exec($this->ch);
         if ($result === false) {
             throw new \Exception('Curl failed with error: ' . curl_error($this->ch));
         }
-        $response = new Response($result, curl_getinfo($this->ch, CURLINFO_HTTP_CODE),  microtime(true) - $beginTime, $token);
+        $response = new Response($result, curl_getinfo($this->ch, CURLINFO_HTTP_CODE), microtime(true) - $beginTime,
+            $token);
         return $response;
     }
 
@@ -87,7 +87,7 @@ class Connection extends BaseDataObject
     public function send($tokens, $message, $options)
     {
         $message = $message instanceof Message ? $message : new Message($message);
-        $options = $options instanceof Options ? $options : new Options($message);
+        $options = $options instanceof Options ? $options : new Options($options);
 
         $result = [];
         foreach ($tokens as $token) {
