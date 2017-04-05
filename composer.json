@@ -1,0 +1,30 @@
+{
+  "name": "dashi/apns2",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/huxia/apns2",
+  "description": "Simple HTTP2 API for Apple Push Notification service (APNs)",
+  "authors": [
+    {
+      "name": "Huizhe",
+      "email": "huizhe.xiao@gmail.com"
+    }
+  ],
+  "keywords": [
+    "apns",
+    "http2",
+    "apple",
+    "push",
+    "notification",
+    "simple"
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Apns2\\": "src/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}
