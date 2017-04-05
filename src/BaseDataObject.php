@@ -20,7 +20,7 @@ abstract class BaseDataObject implements JsonSerializable
     {
         if ($json) {
             foreach ($json as $k => $v) {
-                $varName = Utils::hyphenJoinedToCamelcase($k);
+                $varName = Utils::hyphenJoinedToCamelcase($k, false);
                 if (!empty($childClasses[$varName]) && (is_object($v) || is_array($v))) {
                     $subObjectClassName = $childClasses[$varName];
                     // sub-object
