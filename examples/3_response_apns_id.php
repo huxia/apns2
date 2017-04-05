@@ -21,5 +21,9 @@ $responses = $connection->send([
     'apns-id' => $uuid,
 ]);
 $connection->close();
-echo "check response: {$responses[0]->apnsId}\n";
+echo "check response: {$responses[0]->apnsId} == ${uuid}\n";
 assert($responses[0]->apnsId == $uuid);
+
+$reason = \Huxia\Apns2\Response::REASON_BAD_DEVICE_TOKEN;
+echo "check response: {$responses[0]->reason} == ${$reason}\n";
+assert($responses[0]->reason == $reason);

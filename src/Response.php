@@ -8,6 +8,64 @@ namespace Huxia\Apns2;
  */
 class Response
 {
+    /** @var string */
+    const REASON_BAD_COLLAPSE_ID = 'BadCollapseId';
+    /** @var string */
+    const REASON_BAD_DEVICE_TOKEN = 'BadDeviceToken';
+    /** @var string */
+    const REASON_BAD_EXPIRATION_DATE = 'BadExpirationDate';
+    /** @var string */
+    const REASON_BAD_MESSAGE_ID = 'BadMessageId';
+    /** @var string */
+    const REASON_BAD_PRIORITY = 'BadPriority';
+    /** @var string */
+    const REASON_BAD_TOPIC = 'BadTopic';
+    /** @var string */
+    const REASON_DEVICE_TOKEN_NOT_FOR_TOPIC = 'DeviceTokenNotForTopic';
+    /** @var string */
+    const REASON_DUPLICATE_HEADERS = 'DuplicateHeaders';
+    /** @var string */
+    const REASON_IDLE_TIMEOUT = 'IdleTimeout';
+    /** @var string */
+    const REASON_MISSING_DEVICE_TOKEN = 'MissingDeviceToken';
+    /** @var string */
+    const REASON_MISSING_TOPIC = 'MissingTopic';
+    /** @var string */
+    const REASON_PAYLOAD_EMPTY = 'PayloadEmpty';
+    /** @var string */
+    const REASON_TOPIC_DISALLOWED = 'TopicDisallowed';
+    /** @var string */
+    const REASON_BAD_CERTIFICATE = 'BadCertificate';
+    /** @var string */
+    const REASON_BAD_CERTIFICATE_ENVIRONMENT = 'BadCertificateEnvironment';
+    /** @var string */
+    const REASON_EXPIRED_PROVIDER_TOKEN = 'ExpiredProviderToken';
+    /** @var string */
+    const REASON_FORBIDDEN = 'Forbidden';
+    /** @var string */
+    const REASON_INVALID_PROVIDER_TOKEN = 'InvalidProviderToken';
+    /** @var string */
+    const REASON_MISSING_PROVIDER_TOKEN = 'MissingProviderToken';
+    /** @var string */
+    const REASON_BAD_PATH = 'BadPath';
+    /** @var string */
+    const REASON_METHOD_NOT_ALLOWED = 'MethodNotAllowed';
+    /** @var string */
+    const REASON_UNREGISTERED = 'Unregistered';
+    /** @var string */
+    const REASON_PAYLOAD_TOO_LARGE = 'PayloadTooLarge';
+    /** @var string */
+    const REASON_TOO_MANY_PROVIDER_TOKEN_UPDATES = 'TooManyProviderTokenUpdates';
+    /** @var string */
+    const REASON_TOO_MANY_REQUESTS = 'TooManyRequests';
+    /** @var string */
+    const REASON_INTERNAL_SERVER_ERROR = 'InternalServerError';
+    /** @var string */
+    const REASON_SERVICE_UNAVAILABLE = 'ServiceUnavailable';
+    /** @var string */
+    const REASON_SHUTDOWN = 'Shutdown';
+
+
     public $deviceId;
     public $apnsId;
     public $code;

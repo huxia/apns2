@@ -21,10 +21,18 @@ class Options extends BaseDataObject
     public $apnsTopic;
 
     /**
+     * @var string|null
+     */
+    public $apnsCollapseId;
+
+    /**
      * @var int
      */
     public $curlTimeout = 30;
 
+    /**
+     * @var string
+     */
     public $userAgent = 'apns2(php)';
 
     public function __construct($data = [])
