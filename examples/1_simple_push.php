@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $connection = new Dashi\Apns2\Connection();
 $connection->sandbox = false;
-$connection->certPath = '/data/www/v4/worker/cert/http2.pem';
+$connection->certPath = '/path/to/http2/cert.pem';
 
 $aps = new Dashi\Apns2\MessageAPSBody();
 $aps->alert = 'test 1';
