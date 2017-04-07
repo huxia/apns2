@@ -1,6 +1,6 @@
 # apns2
 
-Simple & expressive HTTP2 API for Apple Push Notification service (APNs) with comprehensive docs/constants.
+Simple & expressive PHP HTTP2 API for Apple Push Notification service (APNs) with comprehensive docs/constants.
 
 ### Guidance
 
