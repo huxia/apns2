@@ -24,7 +24,7 @@ class MessageAPSBody extends BaseDataObject
     public function __construct($data = [])
     {
         $this->loadFromJSON($data, [
-            'alert' => MessageAlertBody::class
+            'alert' => 'Dashi\Apns2\MessageAlertBody'
         ]);
     }
 }

@@ -8,7 +8,7 @@ class Message extends BaseDataObject
     public function __construct($data = [])
     {
         $this->loadFromJSON($data, [
-            'aps' => MessageAPSBody::class
+            'aps' => 'Dashi\Apns2\MessageAPSBody'
         ]);
     }
 
