@@ -4,7 +4,7 @@ Simple & expressive PHP HTTP2 API for Apple Push Notification service (APNs) wit
 
 ### Guidance
 
-1. [Make Sure CURL Supports HTTP/2](http://stackoverflow.com/a/34831873/286348)
+1. [Make Sure CURL Supports HTTP/2](http://stackoverflow.com/a/34831873/286348) (for php version < 5.5.24, check [here](https://stackoverflow.com/a/34609756))
 2. [Creating a Universal Push Notification Client SSL Certificate (.p12)](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW11)
 3. Converting .p12 to .pem
 > `openssl pkcs12 -in cert.p12 -out cert.pem -nodes -clcerts`
